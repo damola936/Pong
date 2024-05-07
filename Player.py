@@ -23,6 +23,7 @@ class Player:
             pong_part.penup()
             pong_part.setheading(heading)
             pong_part.goto(x=x_position, y=y_position + self.increment)
+            pong_part.speed("fastest")
             self.increment += increment
             self.pong_parts.append(pong_part)
 
@@ -36,7 +37,7 @@ class Player:
 
     def is_at_wall(self):
         """Checks if the pad is at the wall, if True it turns it the other way."""
-        if abs(self.pong_parts[0].ycor()) >= 300:
+        if abs(self.pong_parts[0].ycor()) >= 400:
             if self.pong_parts[0].heading() == 90:
                 for parts in self.pong_parts:
                     parts.setheading(270)
